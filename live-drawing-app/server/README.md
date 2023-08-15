@@ -1,0 +1,1 @@
+install ts-node, nodemone, express, socket.io, @types/node
