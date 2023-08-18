@@ -15,6 +15,14 @@ io.on("connection", (socket) => {
   socket.on("chat message", (msg) => {
     io.emit("chat message", msg);
   });
+
+  socket.on("typing", (msg) => {
+    socket.broadcast.emit("typing", msg);
+  });
+
+  socket.on("disconnect", () => {
+    console.log("user disconnected");
+  });
 });
 
 server.listen(3000, () => {
