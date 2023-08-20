@@ -12,12 +12,12 @@ app.get("/", (req, res) => {
 });
 
 io.on("connection", (socket) => {
-  socket.on("chat message", (msg) => {
-    io.emit("chat message", msg);
+  socket.on("chat message", (msg, username) => {
+    io.emit("chat message", msg, username);
   });
 
-  socket.on("typing", (msg) => {
-    socket.broadcast.emit("typing", msg);
+  socket.on("typing", (msg, username) => {
+    socket.broadcast.emit("typing", msg, username);
   });
 
   socket.on("disconnect", () => {
